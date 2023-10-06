@@ -48,16 +48,14 @@ def dump(hostname, port, filename):
             offset = 0
             limit = 100
 
-            all_docs = []
-
             for offset in range(0, count, limit):
                 print(f"        Dumping collection {collection.name}...")
                 docs = collection.get(limit=limit, offset=offset)["documents"]
 
+                all_docs.extend(docs)
+
                 if len(docs) < limit:
                     break
-                
-                all_docs.extend(docs)
             
         json.dump(all_docs, f, indent=2)
 
