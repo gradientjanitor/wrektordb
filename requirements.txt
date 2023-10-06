@@ -1,0 +1,8 @@
+pymilvus==2.3.0
+pinecone-client==2.2.0
+qdrant-client==1.5.4
+weaviate-client==3.24.1
+chromadb==0.4.12
+tqdm>=4.66.1
+fire==0.5
+numpy>=1.22
