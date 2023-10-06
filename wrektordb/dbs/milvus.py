@@ -60,18 +60,13 @@ def dump(hostname=None, port=None, user=None, password=None, db_name=None, token
 
         output_fields = [c.name for c in collection.schema.fields]
 
-        # return 5 results per page
         limit = 1000
-
-        # create a query iterator
         query_iterator = collection.query_iterator(expr="", output_fields=output_fields, batch_size=limit)
 
         while True:
-            # turn to the next page
             res = query_iterator.next()
 
             if len(res) == 0:
-                # close the iterator
                 query_iterator.close()
                 break
 
